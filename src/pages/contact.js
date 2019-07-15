@@ -4,30 +4,26 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeroSection from "../components/Reuseable/HeroSection"
 import InfoBlock from "../components/Reuseable/InfoBlock"
-import DualInfoBlock from "../components/Reuseable/DualInfoBlock"
-import TeamPhotoSection from "../components/About/TeamPhotoSection"
+import Contact from "../components/Contact/Contact"
 
-const AboutPage = ({ data }) => (
+const ContactPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <HeroSection
       img={data.img.childImageSharp.fluid}
-      title="About LeanCodeOnline"
+      title="Contact Us"
       subtitle=""
       heroclass="about-background "
     />
-    <DualInfoBlock
-      heading="A Message from Ceo"
-      img="https://images.pexels.com/photos/2641069/pexels-photo-2641069.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-    />
-    <InfoBlock heading="About Our Vision" />
-    <TeamPhotoSection />
+
+    <InfoBlock heading="How can we help" />
+    <Contact />
   </Layout>
 )
 
 export const query = graphql`
   {
-    img: file(relativePath: { eq: "about.png" }) {
+    img: file(relativePath: { eq: "contact.png" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
@@ -37,4 +33,4 @@ export const query = graphql`
   }
 `
 
-export default AboutPage
+export default ContactPage
